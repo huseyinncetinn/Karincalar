@@ -117,3 +117,6 @@ def urunDetay(request , slug):
     }
 
     return render(request, "urun-detay.html",context)
+
+def page_not_found_view(request, exception):
+    return render(request, '404.html')
