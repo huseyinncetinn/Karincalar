@@ -1,0 +1,64 @@
+{% extends "main.html" %}
+{% load static %}
+{% load i18n %}
+
+
+
+{% block content %}
+<div class="kategori-ust-img">
+    <img src="{% static 'image/kapibg.webp' %}" alt="" width="100%">
+</div>
+<div class="container mt-5 mb-5">
+    <h2 class="text-center mb-5">{% trans 'Hakkımızda' %}</h2>
+
+    <div>
+        <p class="text-secondary">
+        {% blocktrans %}
+        1985 yılından itibaren ahşap kapı sektöründe faaliyet gösteren firmamız, 2008 yılı itibari ile çelik kapı sektöründe yer almaya başlamıştır.
+        {% endblocktrans %}
+        </p>
+    </div>
+
+    <div>
+        <p class="text-secondary">
+        {% blocktrans %}
+        Uzman ve deneyimli bir ekip ile 12.000 m²’si kapalı, 20.000 m²’si açık olmak üzere toplam 32.000 m²’lik alanda faaliyet göstermektedir. Ahşap kapıda yıllık üretim miktarı  350.000 adet, çelik kapıda ise üretim miktarı 100.000 adete ulaşıp sektörde güçlü bir pazar payına ulaşmıştır.
+        {% endblocktrans %}
+        </p>
+    </div>
+
+    <div >
+        <p class="text-secondary">
+        {% blocktrans %}
+        İhracatın önemini en iyi bilen firmamız başta Romanya, Bulgaristan, Yunanistan, Tunus, Cezayir, İran, Irak, Türkmenistan, Libya ve Sudan olmak üzere ihracatını arttırarak devam etmektedir.
+        {% endblocktrans %}
+        </p>
+    </div>
+    <div >
+        <p class="text-secondary">
+        {% blocktrans %}
+       Şimdiden işbirliğiniz için teşekkür ederiz.
+        {% endblocktrans %}
+        </p>
+    </div>
+    <div>
+        <h5>{% trans 'Misyonumuz' %}</h5>
+         <p class="text-secondary">
+        {% blocktrans %}
+            Firma olarak ar-ge çalışmalarını ve teknolojik gelişmeleri yakından takip ederek, ilkelerimizden ve kalitemizden taviz vermeden siz müşterilerimize daha iyiyi sunmak için çalışıyoruz.
+        {% endblocktrans %} 
+         </p>
+    </div>
+    <div>
+        <h5>{% trans 'Vizyonumuz' %}</h5>
+         <p class="text-secondary">
+        {% blocktrans %}
+            Üretimde kullanılan malzemeleri büyük önem ve titizlikte seçerek müşterine en iyiyi sunma gayreti içinde olan firmamız yüzde yüz müşteri memnuniyetini ön planda tutup satış sonrası da hizmeti en kaliteli şekilde vermek ilkesi ile hareket etmiştir.
+        {% endblocktrans %}
+         </p>
+    </div>
+
+</div>
+
+
+{% endblock content %}

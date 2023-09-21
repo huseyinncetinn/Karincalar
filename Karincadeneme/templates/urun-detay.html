@@ -1,0 +1,204 @@
+{% extends "main.html" %}
+{% load static %}
+{% load i18n %}
+
+
+
+{% block content %}
+<div class="kategori-ust-img text-center">
+    <img src="{% static 'image/logo.png' %}" alt="" width="20%">
+</div>
+
+<div class="urunDetay-div container mt-3 mb-5">
+    <div class="show1">
+        <div class="overlay"></div>
+        <div class="img-show">
+            <span id="close">X</span>
+            <img src="">
+            <div id="caption"></div>    
+        </div>
+    </div>
+
+
+
+    <div class="col">
+            <div class="img-zoomer-box urun-image" >
+                <img class="img-1" src="{{ urun.urunResim.url }}" alt="" width="100%">
+                <!-- <div id="img-2" style="background-image: url('{{ urun.urunResim.url }}');"></div> -->
+            </div>
+            {% if urun.urunResim2 %}
+            <div class="img-zoomer-box urun-image">
+                <img class="img-1" src="{{ urun.urunResim2.url }}" alt="" width="100%" >
+            </div>
+            {% else %}
+            {% endif %}
+
+            {% if urun.urunResim3 %}
+            <div class="img-zoomer-box urun-image">
+                <img class="img-1" src="{{ urun.urunResim3.url }}" alt="" width="100%" >
+            </div>
+            {% else %}
+            {% endif %}
+            {% if urun.urunResim4 %}
+            <div class="img-zoomer-box urun-image">
+                <img class="img-1" src="{{ urun.urunResim4.url }}" alt="" width="100%" >
+            </div>
+            {% else %}
+            {% endif %}
+            {% if urun.urunResim4 %}
+            <div class="img-zoomer-box urun-image">
+                <img class="img-1" src="{{ urun.urunResim4.url }}" alt="" width="100%" >
+            </div>
+            {% else %}
+            {% endif %}
+    </div>
+            
+    
+    <div class="urun-content">
+        <div class="col img-right">
+
+            {% if urun.urunResim5 %}
+            <div class="img-zoomer-box urun-image">
+                <img class="img-1" src="{{ urun.urunResim5.url }}" alt="">
+            </div>
+            {% else %}
+            {% endif %}
+            
+            {% if urun.urunResim6 %}
+            <div class="img-zoomer-box urun-image">
+                <img class="img-1" src="{{ urun.urunResim6.url }}" alt="">
+            </div>
+            {% else %}
+            {% endif %}
+
+            {% if urun.urunResim7 %}
+            <div class="img-zoomer-box urun-image">
+                <img class="img-1" src="{{ urun.urunResim7.url }}" alt="">
+            </div>
+            {% else %}
+            {% endif %}
+            {% if urun.urunResim8 %}
+            <div class="img-zoomer-box urun-image">
+                <img class="img-1" src="{{ urun.urunResim8.url }}" alt="">
+            </div>
+            {% else %}
+            {% endif %}
+            {% if urun.urunResim9 %}
+            <div class="img-zoomer-box urun-image">
+                <img class="img-1" src="{{ urun.urunResim9.url }}" alt="">
+            </div>
+            {% else %}
+            {% endif %}
+        </div>
+      <h5 class="text-secondary">Karıncalar</h5>
+      <div class="urun-kod">
+           <h4>{{ urun.urunKodu }}</h4>
+      </div>
+      <div class="urun-icerik">
+        {% if urun.icDolgu %}
+        <p><b>{% trans 'İç dolgu malzemesi' %}:</b> {{urun.icDolgu}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.icKasa %}
+        <p><b>{% trans 'Kasa' %}:</b> {{urun.icKasa}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.icPervaz %}
+        <p><b>{% trans 'Pervaz' %}:</b> {{urun.icPervaz}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.icBoya %}
+        <p><b>{% trans 'Boya' %}:</b> {{urun.icBoya}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.icKanat %}
+        <p><b>{% trans 'Kanat' %}:</b> {{urun.icKanat}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.icSerenler %}
+        <p><b>{% trans 'Serenler' %}:</b> {{urun.icSerenler}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.icMasif %}
+        <p><b>{% trans 'Özellikleri' %}:</b> {{urun.icMasif}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.adoKanat %}
+        <p><b>{% trans 'Kanat' %}:</b> {{urun.adoKanat}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.adoKasaPervaz %}
+        <p><b>{% trans 'Kasa ve Pervaz' %}:</b> {{urun.adoKasaPervaz}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik1 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik1}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik2 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik2}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik3 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik3}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik4 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik4}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik5 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik5}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik6 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik6}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik7 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik7}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik8 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik8}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik9 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik9}} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik10 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik10  }} </p>
+        {% else %}
+        {% endif %}
+
+        {% if urun.celikicerik11 %}
+        <p><b><i class="fa-solid fa-angle-right"></i></b> {{urun.celikicerik11}} </p>
+        {% else %}
+        {% endif %}
+
+
+      </div>
+    </div>
+</div>
+
+
+{% endblock content %}

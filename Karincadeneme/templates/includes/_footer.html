@@ -1,0 +1,64 @@
+{% load static %}
+{% load i18n %}
+<footer>
+    <div class="container">
+        <div class="footer-div">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-lg-3 row-cols-xl-4">
+                <div class="col col-footer">
+                    <h6>Karıncalar</h6>
+                    <a href="{% url 'hakkimizda' %}">{% trans 'Hakkımızda' %}</a>
+                    <a href="{% url 'iletisim' %}">{% trans 'İletişim' %}</a>
+                    <a href="https://drive.google.com/file/d/1H5KmS2yieydtqHSDNZk9GoHLQkT0Qqn7/view?usp=drive_link" target="_blank">{% trans 'Katalog' %}</a>
+                </div>
+                <div class="col col-footer">
+                    <h6>{% trans 'İç Kapı Modelleri' %}</h6>
+                        {% for ic in icKapi %}
+                           <a href="{% url 'kategori' ic.slug %}">
+                              <span>{{ ic.isim }}</span>
+                            </a>
+                        {% endfor %}
+                </div>
+                <div class="col col-footer social-div">
+                    <h6>{% trans 'Takip Et'%}</h6>
+                    <a href="https://www.facebook.com/celikkapictiy" target="_blank" class="d-flex social-icon-link">
+                        <div class="social-icon-div face">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <span>Facebook</span> 
+                    </a>
+                    <a href="https://www.instagram.com/karincalarkapi/" target="_blank" class="d-flex social-icon-link">
+                        <div class="social-icon-div ins">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <span>İnstagram</span> 
+                    </a>
+                     <!-- <a href="" class="d-flex social-icon-link">
+                        <div class="social-icon-div x">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </div>
+                        <span>X</span> 
+                    </a>
+                    <a href="" class="d-flex social-icon-link">
+                        <div class="social-icon-div you">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                        <span>Youtube</span>
+                    </a>  -->
+                </div>
+                <div class="col col-footer footer-logo">
+                    <img src="{% static 'image/logo.png' %}" alt="">
+                    <div class="footer-tel">
+                        <img src="https://st3.myideasoft.com/idea/ho/42/themes/selftpl_5fe99bd02383f/assets/images/icon-footer-phone-2.svg?revision=7.2.6.4-64-1679782822" alt="">
+                        <span>0(535) 446 04 43</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="container">
+    <div class="footer-second-div">
+        <small class="mt-3 text-secondary d-block">Karınca Orman Ürünleri Copyright © 2023</small>
+        <a href="http://www.kentmatbaa.com/" target="_blank"><small class="text-center mt-3 text-secondary d-block">KENT REKLAM® | E-Ticaret paketleri ile hazırlanmıştır.</small></a> 
+    </div>
+</div>

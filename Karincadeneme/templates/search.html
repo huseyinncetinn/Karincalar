@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+{% load static %}
+{% load i18n %}
+
+
+
+
+{% block content %}
+
+
+<div class="row d-flex flex-wrap row-cols-2 row-cols-sm-2 row-cols-lg-2 row-cols-xl-4 mt-5">
+  {% for urun in urunler %}
+        <div class="col index-urun-col">
+            <a href="{% url 'urunDetay' urun.slug %}" class="d-flex justify-content-center mb-3">
+                <div class="card index-urunCard" style="width: 18rem;">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <img class="card-img-top" src="{{ urun.urunResim.url }}" alt="Card image cap">
+                    <div class="card-body text-center">
+                        <h6 class="fw-bold">Karıncalar</h6>
+                        <small class="card-text text-secondary">{{ urun.urunKodu }}</small>
+                    </div>
+                </div>
+            </a>                   
+        </div>
+    {% endfor %}
+</div>    
+
+{% endblock content %}

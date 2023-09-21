@@ -1,0 +1,149 @@
+{% load static %}
+{% load i18n %}
+<div class="nav-ust">
+  <div class="nav-container nav-ust-div d-flex justify-content-between align-items-center">
+    <div>
+      <i class="fa-solid fa-phone-volume"></i> +90 (535) 446 04 43
+    </div>
+    <div >
+      <ul class="d-flex list-items">
+        <li class="list-item">
+          <a href="{% url 'hakkimizda' %}">{% trans 'Hakkımızda' %}</a>
+        </li>
+        <li class="list-item">
+          <a href="https://drive.google.com/file/d/1H5KmS2yieydtqHSDNZk9GoHLQkT0Qqn7/view?usp=drive_link" target="_blank">{% trans 'Katalog' %}</a>
+        </li>
+        <li class="list-item">
+          <a href="{% url 'iletisim' %}">{% trans 'İletişim' %}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<nav class="sticky-bar">
+            <div class="nav-alt">
+                            <div class="nav-container mid-nav " >
+                                  <div class="logo-div">
+                                    <div class="hamburger-button-ust">
+                                      <button class="hamburger-button" style="background-color: transparent;" onclick="openNav()">
+                                        <i class="fa-solid fa-bars hamburger-icon"></i>
+                                      </button>
+                                    </div>
+                                    <div>
+                                      <a href="{% url 'index' %}">
+                                        <img src="{% static 'image/logo.png' %}" alt="">
+                                    </a>
+                                    </div>
+                                  </div>
+                                  <div class="navbar-button">
+                                    <a href="https://drive.google.com/file/d/1H5KmS2yieydtqHSDNZk9GoHLQkT0Qqn7/view?usp=drive_link" target="_blank">
+                                      <button>
+                                        {% trans 'E-KATALOG' %} 
+                                      </button>
+                                    </a>
+                                    
+                                  </div>
+                                  <div class="dropdown-languages">
+                                    <div class="dropdown show ms-2 ">
+                                      <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       {% trans 'Diller' %} 
+                                      </a>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                      {% get_current_language as LANGUAGE_CODE %}
+                                      {% get_available_languages as LANGUAGES %}
+                                      {% get_language_info_list for LANGUAGES as languages %}
+  
+                                      {% for lang in languages %}
+                                      <a class="dropdown-item" id="language-dropdown" href="/{{ lang.code }}/{{link}}"> 
+                                          {{ lang.name_local }}
+                                      </a>
+                                      {% endfor %}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="search-bar rounded-5 d-flex">
+                                       
+                                      <form action="{% url 'search' %}" method="GET">
+                                        {% csrf_token %}
+                                        <input type="search" name="searched" value="{{searched}}" placeholder="Kapı modeli seçin">
+                                      </form>
+                                        
+                                  </div>
+                            </div>
+                <div class="nav-kategori">
+                        <div class="kategori-items">      
+                          <!-- <ul class="d-flex justify-content-around m-auto"> -->
+                          {% for ic in icKapi %}
+                           <a href="{% url 'kategori' ic.slug %}" class="kategori-item">
+                              <span>{{ ic.isim }}</span>
+                            </a>
+                          {% endfor %}
+
+                          <li class="kategori-item dropdown">
+                                    <button class="dropbtn">{% trans 'Ado Kapı' %}</button>
+                                    <div class="dropdown-content">
+                                    {% for ado in adoKapi %}
+                                        <a href="{% url 'kategori' ado.slug %}">{{ ado.isim }}</a>
+                                    {% endfor %}
+                                      
+                                    </div>
+                            </li>
+                           
+
+                            <li class="kategori-item dropdown">
+                                    <button class="dropbtn">{% trans 'Çelik Kapı' %}</button>
+                                    <div class="dropdown-content">
+                                    {% for celik in celikKapi %}
+                                      <a href="{% url 'kategori' celik.slug %}">{{ celik.isim }}</a>
+                                    
+                                    {% endfor %}
+                                    </div>
+                            </li>
+                            
+
+                              
+                        </div>
+                </div>
+            </div>
+</nav>
+
+<div class="sidenav" id="sidebarnav">
+      <a href="javascript:void(0)" class="closeBtn" onclick="closeNav()">&times;</a>
+          {% for ic in icKapi %}
+          <a href="{% url 'kategori' ic.slug %}">{{ ic.isim }}</a>
+          <hr>
+          {% endfor %}
+      
+          <div style="background-color: #D71920;" class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button style="background-color: #D71920; color: #fff;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <h6 style="color: #fff;">{% trans 'Çelik Kapı' %}</h6>
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div style="background-color: #D71920;" class="accordion-body">  
+                    {% for celik in celikKapi %}
+                          <a href="{% url 'kategori' celik.slug %}">{{ celik.isim }}</a>                                   
+                    {% endfor %}
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button style="background-color: #D71920;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    <h6 style="color: #fff;">{% trans 'Ado Kapı' %}</h6>
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div style="background-color: #D71920;" class="accordion-body">
+                    {% for ado in adoKapi %}
+                    <a href="{% url 'kategori' ado.slug %}">{{ ado.isim }}</a>
+                    {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+
